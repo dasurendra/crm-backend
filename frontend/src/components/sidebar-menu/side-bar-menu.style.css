@@ -1,0 +1,14 @@
+.sidebar-top {
+	font-size: 2rem;
+}
+
+ul li {
+	list-style: none;
+	line-height: 4rem;
+}
+
+.menu-item {
+	text-decoration: none;
+	color: rgb(168, 167, 167);
+	font-weight: bold;
+}

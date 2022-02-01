@@ -1,0 +1,110 @@
+############ User api lists
+
+### get
+GET  http://localhost:8000/api/v1/user 
+
+### create an User
+POST http://localhost:8000/api/v1/user 
+Content-Type: application/json
+
+{
+"fname" : "Prem",
+"lname" : "Acharya", 
+"dob": "2021-10-10", 
+"email": "test2@a.com",
+"password": "123456s", 
+"phone": "041111111", 
+"address": "10 George st, Sdyeny, 2000", 
+"gender": "male" 
+}
+
+### update User
+PUT  http://localhost:8000/api/v1/user 
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGEuY29tIiwiaWF0IjoxNjMzOTAzMDMwLCJleHAiOjE2MzM5MDM5MzB9.irqLANMHOXOXx_wLIb7uiDUQ199iNUfyaVxPJND2ywI
+
+{
+"fname" : "Prem",
+"lname" : "Acharya", 
+"dob": "2021-10-10",  
+"phone": "041111111", 
+"address": "10 George st, Sdyeny, 2000", 
+"gender": "male" 
+}
+
+### email verification api 
+POST http://localhost:8000/api/v1/user/email-verification 
+Content-Type: application/json
+
+{
+ "otp": "16799194",
+ "email" : "test2@a.com"
+}
+ 
+#### admin login
+POST http://localhost:8000/api/v1/user/login
+Content-Type: application/json
+
+{ 
+"email": "test2@a.com",
+"password": "12345673"
+}
+
+#### admin update password
+PATCH  http://localhost:8000/api/v1/user
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGEuY29tIiwiaWF0IjoxNjMzOTExMTQ2LCJleHAiOjE2MzM5MTIwNDZ9.1tKoUCntY_Kqv7eZur09XAtme_t2aAcKFGSyy2hbIOA
+
+{ 
+"currentPassword": "DaA3$1234s",
+"password": "12345673"
+}
+
+ 
+#### admin update password
+PATCH  http://localhost:8000/api/v1/user/reset-password
+Content-Type: application/json
+
+{ 
+  "email":"test2@a.com",
+  "otp": "747646",
+  "password": "DaA3$1234s"
+}
+
+ 
+
+ ############ Category api lists
+
+### Create new category
+POST http://localhost:8000/api/v1/category
+Content-Type: application/json
+
+{ 
+ "name": "Kitchenware",
+ "parentCat" : null
+}
+ 
+
+### get ategory
+GET  http://localhost:8000/api/v1/category
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGEuY29tIiwiaWF0IjoxNjMzMzk0NTA1LCJleHAiOjE2MzMzOTU0MDV9.v0DGfQvJ57o_RaUSQtkCLfm0pjaIQI671iXaZrjLaXI
+
+ 
+ ### Edit category
+
+### Delete category
+DELETE  http://localhost:8000/api/v1/category/6151063cdf3f356869fad056
+
+
+####################### Tokens API
+### Request for a new accessJWT
+GET http://localhost:8000/api/v1/token
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGEuY29tIiwiaWF0IjoxNjMzNDcyNDgyLCJleHAiOjE2MzYwNjQ0ODJ9.ot-mRaNi793-m9gn7FIme5sY0l-gBJ9UC3eoR3w_ZGc
+
+### request otp for password reset
+POST http://localhost:8000/api/v1/token/request-otp
+Content-Type: application/json
+
+{
+  "email": "test2@a.com"
+}
